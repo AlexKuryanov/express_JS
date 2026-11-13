@@ -1,9 +1,26 @@
-let title;
-let screens;
-let screenPrice;
-let rollback;
-let fullPrice;
-let adaptive;
+let title = 'Расчет стоимости';
+let screens = 'Простые, Сложные, Интерактивные';
+let screenPrice = 500;
+let rollback = 3;
+let fullPrice = 20000;
+let adaptive = true;
 
-alert('Hello, World!');
-console.log('I started the course');
+console.log(typeof title);
+console.log(typeof fullPrice);
+console.log(typeof adaptive);
+
+console.log(screens.length);
+
+console.log(
+  `Стоимость верстки экранов ${screenPrice} рублей/ долларов/гривен/юани`,
+);
+
+console.log(
+  `Стоимость разработки сайта ${fullPrice} рублей/ долларов/гривен/юани`,
+);
+
+console.log(screens.toLocaleLowerCase().split(' '));
+
+console.log(
+  `Процент отката посреднику за работу ${fullPrice * (rollback / 100)}`,
+);
