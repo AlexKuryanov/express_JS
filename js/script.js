@@ -1,5 +1,25 @@
 'use strict';
 
+const title = document.getElementsByTagName('h1')[0];
+const buttons = document.getElementsByClassName('handler_btn');
+const increaser = document.querySelector('.screen-btn');
+const otherItemsPercent = document.querySelectorAll('.other-items.percent');
+const otherItemsNumber = document.querySelectorAll('.other-items.number');
+const range = document.querySelector('.rollback input[type="range"]');
+const rangeValue = document.querySelector('.rollback .range-value');
+const totalInputs = Array.from(document.getElementsByClassName('total-input'));
+let screenTypes = document.querySelectorAll('.screen');
+
+console.log(title);
+console.log(buttons);
+console.log(increaser);
+console.log(otherItemsPercent);
+console.log(otherItemsNumber);
+console.log(range);
+console.log(rangeValue);
+console.log(totalInputs);
+console.log(screenTypes);
+
 const appData = {
   rollback: 10,
   title: '',
@@ -124,10 +144,6 @@ const appData = {
     console.log(appData.getRollbackMessage(appData.fullPrice));
     console.log(appData.servicePercentPrice);
     console.log(appData.screens);
-
-    // for (let key in appData) {
-    //     console.log(key + ": " + appData[key]);
-    // }
   },
 };
 
