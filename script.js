@@ -62,16 +62,14 @@ const appData = {
       } while (!appData.isNumber(price));
       appData.services[`${name}_${i}`] = +price;
     }
-
+    console.log(appData.services);
     appData.adaptive = confirm('Нужен ли адаптив на сайте?');
   },
   getPrices: function () {
-    // for (let screen of appData.screens) {
-    //   appData.screenPrice += +screen.price;
-    // }
     appData.screens.reduce(function (sum, screen) {
       sum += screen['price'];
-      return sum;
+      appData.screenPrice = sum;
+      return appData.screenPrice;
     }, 0);
 
     for (let key in appData.services) {
