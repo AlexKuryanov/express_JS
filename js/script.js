@@ -23,7 +23,7 @@ let screens = document.querySelectorAll('.screen');
 
 const appData = {
   rollback: +range.value,
-  title: '',
+  // title: '',
   screens: [],
   screenPrice: 0,
   adaptive: false,
@@ -37,7 +37,6 @@ const appData = {
   isCalculated: false,
   init: function () {
     this.addTitle();
-    this.checkScreens();
     startButton.addEventListener('click', this.start.bind(this));
     buttonPlus.addEventListener('click', this.addScreenBlock.bind(this));
     resetButton.addEventListener('click', this.reset.bind(this));
@@ -60,6 +59,7 @@ const appData = {
     });
   },
   start: function () {
+    this.checkScreens();
     if (!this.checkScreens()) {
       return;
     }
@@ -80,9 +80,14 @@ const appData = {
     startButton.style.display = 'none';
     resetButton.style.display = 'inline-block';
   },
-  reset: function(){
+  reset: function () {
     console.log('reset');
-    this.start();
+    console.log(screens);
+
+    this.init.bind(this);
+
+    startButton.style.display = 'inline-block';
+    resetButton.style.display = 'none';
   },
   addTitle: function () {
     document.title = title.textContent;
@@ -170,9 +175,7 @@ const appData = {
         (this.screenPrice * this.servicesPercent[key]) / 100;
     }
     this.fullPrice =
-      this.screenPrice +
-      this.servicePricesNumber +
-      this.servicePricesPercent;
+      this.screenPrice + this.servicePricesNumber + this.servicePricesPercent;
 
     this.servicePercentPrice = Math.ceil(
       this.fullPrice - this.fullPrice * (this.rollback / 100),
